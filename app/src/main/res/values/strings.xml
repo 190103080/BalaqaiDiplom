@@ -30,16 +30,4 @@
     <string name="with_email">электронды почта арқылы кіру</string>
     <string name="traditions">салт-дәстүр</string>
     <string name="games">ойындар</string>
-    <string name="profile">Профиль</string>
-    <string name="bastay">Бастау</string>
-    <string name="next">Келесі</string>
-    <string name="end">Аяқтау</string>
-    <string name="info">Мағлұмат</string>
-    <string name="video">Бейнежазба</string>
-    <string name="question">Сұрақ-жауап</string>
-    <string name="what_in_peacture">Суретте не көрсетілген?</string>
-    <string name="hidden_things">Жасырылған заттар</string>
-    <string name="AliAndAyya">Әли мен Айя</string>
-    <string name="collate">Сәйкестендір</string>
-    <string name="start_game">БАСТАУ</string>
 </resources>

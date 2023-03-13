@@ -40,14 +40,12 @@
             android:background="#E23B3B"
             android:orientation="vertical">
 
-            <com.google.android.material.imageview.ShapeableImageView
+            <ImageView
                 android:id="@+id/imFirst"
                 android:layout_width="match_parent"
                 android:layout_height="125dp"
-                android:layout_gravity="center"
                 android:scaleType="centerCrop"
-                app:shapeAppearanceOverlay="@style/images_circular"
-                app:srcCompat="@drawable/test2hpegimg" />
+                app:srcCompat="@drawable/shildehana" />
 
             <TextView
                 android:id="@+id/tvFirst"
@@ -82,14 +80,12 @@
             android:background="#E23B3B"
             android:orientation="vertical">
 
-            <com.google.android.material.imageview.ShapeableImageView
+            <ImageView
                 android:id="@+id/imSecond"
                 android:layout_width="match_parent"
                 android:layout_height="125dp"
-                android:layout_gravity="center"
                 android:scaleType="centerCrop"
-                app:shapeAppearanceOverlay="@style/images_circular"
-                app:srcCompat="@drawable/test2hpegimg" />
+                app:srcCompat="@drawable/tt" />
 
             <TextView
                 android:id="@+id/tvSecond"

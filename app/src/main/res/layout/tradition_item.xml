@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="10dp">
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
@@ -22,19 +21,17 @@
             android:background="#E23B3B"
             android:orientation="vertical">
 
-            <com.google.android.material.imageview.ShapeableImageView
+            <ImageView
                 android:id="@+id/imTrad"
                 android:layout_width="match_parent"
-                android:layout_height="85dp"
-                android:layout_gravity="center"
-                android:scaleType="centerCrop"
-                app:shapeAppearanceOverlay="@style/images_circular"
-                app:srcCompat="@drawable/test2hpegimg" />
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/shildehana" />
 
             <TextView
                 android:id="@+id/tvTrad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:fontFamily="sans-serif"
                 android:gravity="center"
                 android:text="Шілдехана"

@@ -34,9 +34,8 @@ class TraditionsGroupAdapter(val listener: Listener): RecyclerView.Adapter<Tradi
             tvSecond.text = tradition.name2
             imFirst.setImageResource(tradition.image1)
             imSecond.setImageResource(tradition.image2)
-            cardViewLeft.setOnClickListener { listener.onClickLeft(tradition.name1) }
-            cardViewRight.setOnClickListener { listener.onClickRight(tradition.name2) }
-            btnNextTraditions.setOnClickListener { listener.onClickNext(tradition)}
+            cardViewLeft.setOnClickListener { listener.onClick(tradition) }
+            cardViewRight.setOnClickListener { listener.onClick(tradition) }
             //itemView.setOnClickListener { listener.onClick(tradition) }
         }
     }
@@ -48,10 +47,7 @@ class TraditionsGroupAdapter(val listener: Listener): RecyclerView.Adapter<Tradi
     }
 
     interface Listener{
-        fun onClickRight(name: String?)
-        fun onClickLeft(name: String?)
-        fun onClickNext(tradition: Tradition)
-
+        fun onClick(tradition: Tradition)
     }
 
 }

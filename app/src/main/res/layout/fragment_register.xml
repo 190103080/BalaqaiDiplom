@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/gradient_background"
+    tools:context=".authorization.LoginFragment"
+    android:layout_gravity="center">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/gradient_background"
-        tools:context=".authorization.LoginFragment">
+        android:layout_marginTop="50dp">
 
         <ImageView
             android:id="@+id/balaqai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
             android:layout_marginStart="76dp"
             android:src="@drawable/balaqaiword1x"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -19,126 +26,52 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.026" />
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/materialCardView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardElevation="0dp"
-        android:backgroundTint="@android:color/transparent"
-        android:layout_marginTop="80dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/balaqai">
+        <EditText
+            android:id="@+id/editText_fullName"
+            android:layout_width="290dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="92dp"
+            android:background="@drawable/edit_text_style"
+            android:hint="@string/email_or_phone"
+            android:inputType="textPersonName"
+            android:padding="12dp"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/balaqai" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        <EditText
+            android:id="@+id/editText_email_phone_register"
+            android:layout_width="290dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edit_text_style"
+            android:hint="@string/password"
+            android:inputType="textEmailAddress"
+            android:padding="12dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/editText_fullName"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/editText_fullName"
+            app:layout_constraintTop_toBottomOf="@id/editText_fullName" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:id="@+id/editText_email_till"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            <com.google.android.material.textfield.TextInputEditText
-                style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
-                android:id="@+id/editText_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/edit_text_style"
-                android:hint="@string/email_or_phone"
-                android:inputType="textPersonName"
-                android:padding="12dp"
-                android:textStyle="bold" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:id="@+id/editText_fullname_till"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
-                <com.google.android.material.textfield.TextInputEditText
-                    style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
-                    android:id="@+id/editText_fullname"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/edit_text_style"
-                    android:hint="@string/fullname"
-                    android:inputType="textPersonName"
-                    android:padding="12dp"
-                    android:textStyle="bold" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:id="@+id/editText_age_till"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
-                <com.google.android.material.textfield.TextInputEditText
-                    style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
-                    android:id="@+id/editText_age"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/edit_text_style"
-                    android:hint="@string/age"
-                    android:inputType="textPersonName"
-                    android:padding="12dp"
-                    android:textStyle="bold" />
-            </com.google.android.material.textfield.TextInputLayout>
+        <EditText
+            android:id="@+id/editText_password_register"
+            android:layout_width="290dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edit_text_style"
+            android:hint="@string/password_repeat"
+            android:inputType="textPassword"
+            android:padding="12dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/editText_email_phone_register"
+            app:layout_constraintStart_toStartOf="@+id/editText_email_phone_register"
+            app:layout_constraintTop_toBottomOf="@id/editText_email_phone_register" />
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:id="@+id/editText_password_till"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:passwordToggleEnabled="true"
-                android:layout_marginTop="20dp">
-                <com.google.android.material.textfield.TextInputEditText
-                    style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
-                    android:id="@+id/editText_password"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/edit_text_style"
-                    android:hint="@string/password"
-                    android:inputType="textPassword"
-                    android:padding="12dp"
-                    android:textStyle="bold" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:id="@+id/editTextPasswordRepeat_till"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:passwordToggleEnabled="true"
-                android:layout_marginTop="20dp">
-                <com.google.android.material.textfield.TextInputEditText
-                    style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
-                    android:id="@+id/editTextPasswordRepeat"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/edit_text_style"
-                    android:hint="@string/password_repeat"
-                    android:inputType="textPassword"
-                    android:padding="12dp"
-                    android:textStyle="bold" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </LinearLayout>
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <Button
+        <Button
             android:id="@+id/button_subscribe"
             android:layout_width="290dp"
             android:layout_height="48dp"
@@ -150,7 +83,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/materialCardView"
+            app:layout_constraintTop_toBottomOf="@+id/editText_password_register"
             app:layout_constraintVertical_bias="0.33" />
 
         <TextView
@@ -180,3 +113,6 @@
             app:layout_constraintTop_toTopOf="@+id/textView2"
             app:layout_constraintVertical_bias="0.219" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>

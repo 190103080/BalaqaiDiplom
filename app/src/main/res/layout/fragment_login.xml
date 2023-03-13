@@ -20,17 +20,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="310dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="44dp"
+        android:src="@drawable/bala15xnn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.595"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
         android:src="@drawable/balaqaiword1x"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -47,7 +56,12 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-
+        <ImageView
+            android:layout_width="228dp"
+            android:layout_height="317dp"
+            android:src="@drawable/kobuz15x"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -57,9 +71,10 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.26">
+        app:layout_constraintVertical_bias="0.16">
 
         <EditText
             android:id="@+id/editText_email_phone_login"
@@ -68,7 +83,7 @@
             android:layout_marginTop="4dp"
             android:background="@drawable/edit_text_style"
             android:hint="@string/email_or_phone"
-            android:inputType="textEmailAddress"
+            android:inputType="textPersonName"
             android:padding="12dp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -79,7 +94,7 @@
             android:id="@+id/editText_password_login"
             android:layout_width="290dp"
             android:layout_height="48dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/edit_text_style"
             android:hint="@string/password"
             android:inputType="textPersonName"
@@ -94,7 +109,7 @@
             android:id="@+id/forgot_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:text="@string/forgot_password"
             android:textColor="@color/white"
             android:textStyle="bold"
@@ -107,7 +122,7 @@
             android:id="@+id/button_go"
             android:layout_width="290dp"
             android:layout_height="48dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="15dp"
             android:background="@drawable/button_style_green"
             android:text="@string/go"
             android:textColor="@color/white"

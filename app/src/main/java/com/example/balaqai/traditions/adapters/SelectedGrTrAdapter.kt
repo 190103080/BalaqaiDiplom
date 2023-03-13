@@ -8,7 +8,7 @@ import com.example.balaqai.R
 import com.example.balaqai.databinding.TraditionItemBinding
 import com.example.balaqai.traditions.data.SelectedGroupTr
 
-class SelectedGrTrAdapter(val listener: Listener): RecyclerView.Adapter<SelectedGrTrAdapter.SelectedTraditionsViewHolder>() {
+class SelectedGrTrAdapter: RecyclerView.Adapter<SelectedGrTrAdapter.SelectedTraditionsViewHolder>() {
 
     private var traditionsList = mutableListOf<SelectedGroupTr>()
 
@@ -22,15 +22,14 @@ class SelectedGrTrAdapter(val listener: Listener): RecyclerView.Adapter<Selected
     }
 
     override fun onBindViewHolder(holder: SelectedTraditionsViewHolder, position: Int) {
-        holder.bing(traditionsList[position],listener)
+        holder.bing(traditionsList[position])
     }
 
     class SelectedTraditionsViewHolder(item: View): RecyclerView.ViewHolder(item) {
         val binding = TraditionItemBinding.bind(item)
-        fun bing(selectedGroupTr: SelectedGroupTr,listener: Listener) = with(binding){
+        fun bing(selectedGroupTr: SelectedGroupTr) = with(binding){
             imTrad.setImageResource(selectedGroupTr.image)
             tvTrad.text = selectedGroupTr.name
-            itemView.setOnClickListener { listener.onClick(selectedGroupTr.name) }
         }
     }
 
@@ -38,9 +37,5 @@ class SelectedGrTrAdapter(val listener: Listener): RecyclerView.Adapter<Selected
         traditionsList.clear()
         traditionsList.addAll(list)
         notifyDataSetChanged()
-    }
-
-    interface Listener{
-        fun onClick(name:String)
     }
 }
