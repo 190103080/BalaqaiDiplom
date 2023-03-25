@@ -21,6 +21,12 @@ public class User extends BaseEntity implements UserDetails {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "contact")
+    private String contact;
+
+    @Column(name = "avatar")
+    private String avatar;
+
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Permission> permissionList;
 

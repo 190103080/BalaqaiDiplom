@@ -18,4 +18,6 @@ public interface UserService extends UserDetailsService {
     List<Permission> getRoles();
     User saveRole(User user);
 
+    void deleteUser(Long id);
+
 }
