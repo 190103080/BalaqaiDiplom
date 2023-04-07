@@ -1,23 +1,32 @@
 package kz.diplom.balaqai.models;
 
+import lombok.Data;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "t_islamtraditions")
+@Data
 public class IslamTraditions extends BaseEntity{
 
-    @Column(name = "it_name")
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "it_description")
+    @Column(name = "description")
     private String description;
 
-    @Column(name = "it_image")
+    @Column(name = "description1")
+    private String description1;
+
+    @Column(name = "description2")
+    private String description2;
+
+    @Column(name = "image")
     private String image;
 
-    @Column(name = "it_video")
+    @Column(name = "video")
     private String video;
 
 }

@@ -18,17 +18,20 @@ public class User extends BaseEntity implements UserDetails {
     @Column(name = "user_email", unique = true)
     private String email;
 
+    @Column(name = "user_name")
+    private String username;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<Permission> permissionList;
     @Column(name = "password")
     private String password;
 
     @Column(name = "contact")
     private String contact;
 
-    @Column(name = "avatar")
-    private String avatar;
+    @Column(name = "age")
+    private int age;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    private List<Permission> permissionList;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -3,8 +3,8 @@ package kz.diplom.balaqai.services.impl;
 import kz.diplom.balaqai.dto.UserDto;
 import kz.diplom.balaqai.models.Permission;
 import kz.diplom.balaqai.models.User;
-import kz.diplom.balaqai.repository.PermissionRepository;
-import kz.diplom.balaqai.repository.UserRepository;
+import kz.diplom.balaqai.services.repository.PermissionRepository;
+import kz.diplom.balaqai.services.repository.UserRepository;
 import kz.diplom.balaqai.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -79,8 +79,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUser(Long id) {
-        return userRepository.findById(id).orElseThrow();
+    public User getUser(String email) {
+        return userRepository.findByEmail(email);
     }
 
     @Override

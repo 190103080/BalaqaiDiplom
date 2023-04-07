@@ -1,4 +1,4 @@
-package kz.diplom.balaqai.repository;
+package kz.diplom.balaqai.services.repository;
 
 import kz.diplom.balaqai.models.Permission;
 import org.springframework.data.jpa.repository.JpaRepository;

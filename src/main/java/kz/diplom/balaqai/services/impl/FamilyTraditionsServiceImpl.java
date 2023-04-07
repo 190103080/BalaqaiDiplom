@@ -1,7 +1,7 @@
 package kz.diplom.balaqai.services.impl;
 
 import kz.diplom.balaqai.models.FamilyTraditions;
-import kz.diplom.balaqai.repository.FamilyTraditionsRepository;
+import kz.diplom.balaqai.services.repository.FamilyTraditionsRepository;
 import kz.diplom.balaqai.services.FamilyTraditionsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

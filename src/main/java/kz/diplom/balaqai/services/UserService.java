@@ -14,7 +14,7 @@ public interface UserService extends UserDetailsService {
     User getCurrentUser();
     User saveUserData(User user);
     List<User> getUsers();
-    User getUser(Long id);
+    User getUser(String email);
     List<Permission> getRoles();
     User saveRole(User user);
 

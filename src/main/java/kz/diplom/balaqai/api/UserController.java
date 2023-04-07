@@ -19,9 +19,9 @@ public class UserController {
         return userService.getUsers();
     }
 
-    @GetMapping(value = "/getUser/{id}")
-    public User getUser(@PathVariable(name = "id") Long id) {
-        return userService.getUser(id);
+    @GetMapping(value = "/getUser/{user_email}")
+    public User getUser(@PathVariable(name = "user_email") String email) {
+        return userService.getUser(email);
     }
 
     @PostMapping(value = "/addUser")
@@ -33,5 +33,13 @@ public class UserController {
     public void deleteUser(@PathVariable(name = "id") Long id) {
         userService.deleteUser(id);
     }
+
+    /*@PostMapping(value = "/updatePassword/{id}")
+    public void updatePassword(@RequestParam(name = "old_password") String oldPassword,
+                               @RequestParam(name = "new_password") String newPassword,
+                               @RequestParam(name = "re_new_password") String reNewPassword,
+                               @PathVariable(name = "id") Long id) {
+        userService.updatePassword(oldPassword, newPassword, reNewPassword);
+    }*/
 
 }
