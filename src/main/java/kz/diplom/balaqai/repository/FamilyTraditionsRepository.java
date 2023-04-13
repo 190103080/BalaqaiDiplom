@@ -1,4 +1,4 @@
-package kz.diplom.balaqai.services.repository;
+package kz.diplom.balaqai.repository;
 
 import kz.diplom.balaqai.models.FamilyTraditions;
 import org.springframework.data.jpa.repository.JpaRepository;

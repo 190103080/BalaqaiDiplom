@@ -11,4 +11,6 @@ public interface NauryzTraditionsService {
     NauryzTraditions getOneNauryzTradition(Long id);
     NauryzTraditions saveNauryzTradition(NauryzTraditions nauryzTraditions);
 
+    NauryzTraditions getCurrentNauryzTradition();
+
 }

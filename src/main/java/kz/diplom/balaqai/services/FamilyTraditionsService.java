@@ -11,4 +11,6 @@ public interface FamilyTraditionsService {
     FamilyTraditions getFamilyTradition(Long id);
     void deleteFamilyTradition(Long id);
 
+    FamilyTraditions getCurrentTradition();
+
 }

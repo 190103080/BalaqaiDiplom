@@ -11,4 +11,6 @@ public interface IslamTraditionsService {
     List<IslamTraditions> getAllIslamTraditions();
     IslamTraditions getOneIslamTraditions(Long id);
 
+    IslamTraditions getCurrentIslamTradition();
+
 }

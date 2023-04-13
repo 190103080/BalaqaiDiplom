@@ -11,4 +11,6 @@ public interface TraditionsOfRaisingADowryService {
     TraditionsOfRaisingADowry getOneTraditionOfRaisingADowry(Long id);
     TraditionsOfRaisingADowry saveTraditionOfRaisingADowry(TraditionsOfRaisingADowry traditionsOfRaisingADowry);
 
+    TraditionsOfRaisingADowry getCurrentTraditionsOfRaising();
+
 }

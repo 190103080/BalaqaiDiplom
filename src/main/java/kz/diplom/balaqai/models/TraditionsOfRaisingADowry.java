@@ -29,4 +29,16 @@ public class TraditionsOfRaisingADowry extends BaseEntity{
     @Column(name = "video")
     private String video;
 
+    @Column(name = "question")
+    private String question;
+
+    @Column(name = "variantA")
+    private String variantA;
+
+    @Column(name = "variantB")
+    private String variantB;
+
+    @Column(name = "variantC")
+    private String variantC;
+
 }

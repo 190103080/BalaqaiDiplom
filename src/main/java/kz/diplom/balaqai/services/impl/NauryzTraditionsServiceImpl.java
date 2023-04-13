@@ -1,7 +1,7 @@
 package kz.diplom.balaqai.services.impl;
 
 import kz.diplom.balaqai.models.NauryzTraditions;
-import kz.diplom.balaqai.services.repository.NauryzTraditionsRepository;
+import kz.diplom.balaqai.repository.NauryzTraditionsRepository;
 import kz.diplom.balaqai.services.NauryzTraditionsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,5 +32,10 @@ public class NauryzTraditionsServiceImpl implements NauryzTraditionsService {
     @Override
     public NauryzTraditions saveNauryzTradition(NauryzTraditions nauryzTraditions) {
         return nauryzTraditionsRepository.save(nauryzTraditions);
+    }
+
+    @Override
+    public NauryzTraditions getCurrentNauryzTradition() {
+        return null;
     }
 }

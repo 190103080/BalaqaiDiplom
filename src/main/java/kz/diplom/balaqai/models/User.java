@@ -20,9 +20,6 @@ public class User extends BaseEntity implements UserDetails {
 
     @Column(name = "user_name")
     private String username;
-
-    @ManyToMany(fetch = FetchType.EAGER)
-    private List<Permission> permissionList;
     @Column(name = "password")
     private String password;
 
@@ -32,6 +29,8 @@ public class User extends BaseEntity implements UserDetails {
     @Column(name = "age")
     private int age;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<Permission> permissionList;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

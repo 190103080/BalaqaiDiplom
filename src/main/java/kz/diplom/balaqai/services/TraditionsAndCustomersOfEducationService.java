@@ -11,4 +11,6 @@ public interface TraditionsAndCustomersOfEducationService {
     TraditionsAndCustomsOfEducation getOneTraditionAndCustomersOfEducation(Long id);
     TraditionsAndCustomsOfEducation saveTraditionAndCustomersOfEducation(TraditionsAndCustomsOfEducation traditionsAndCustomsOfEducation);
 
+    TraditionsAndCustomsOfEducation getCurrentTraditionsAndCustomers();
+
 }
