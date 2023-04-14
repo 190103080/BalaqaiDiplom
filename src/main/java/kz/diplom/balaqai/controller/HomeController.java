@@ -1,13 +1,19 @@
 package kz.diplom.balaqai.controller;
 
 import kz.diplom.balaqai.dto.UserDto;
+import kz.diplom.balaqai.models.FamilyTraditions;
+import kz.diplom.balaqai.services.FamilyTraditionFileUploadService;
+import kz.diplom.balaqai.services.FamilyTraditionsService;
 import kz.diplom.balaqai.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @Controller
 public class HomeController {
@@ -15,9 +21,15 @@ public class HomeController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private FamilyTraditionsService familyTraditionsService;
+
+    @Autowired
+    private FamilyTraditionFileUploadService familyTraditionFileUploadService;
+
     @GetMapping(value = "/")
     public String homePage() {
-        return "index";
+        return "home";
     }
 
     @GetMapping(value = "/enter")
@@ -50,6 +62,34 @@ public class HomeController {
     @PreAuthorize("isAuthenticated()")
     public String profilePage() {
         return "profile";
+    }
+
+    @GetMapping(value = "/allFamilyTradition")
+    public String allFamilyTradition(Model model) {
+        model.addAttribute("familyTradition", familyTraditionsService.getFamilyTraditions());
+        return "allFamilyTradition";
+    }
+
+    @GetMapping(value = "/detailsFamilyTradition/{id}")
+    public String detailsFamilyTradition(@PathVariable(name = "id") Long id, Model model) {
+        FamilyTraditions familyTradition = familyTraditionsService.getFamilyTradition(id);
+        model.addAttribute("familyTradition", familyTradition);
+        return "detailsFamilyTradition";
+    }
+
+    @PostMapping(value = "/saveTradition")
+    public String saveeCinema(@RequestParam(name = "image_pic") MultipartFile multipartFile, FamilyTraditions familyTraditions) {
+        FamilyTraditions updateCinema = familyTraditionsService.saveFamilyTradition(familyTraditions);
+        familyTraditionFileUploadService.uploadFamilyTraditionsImage(multipartFile, updateCinema);
+        if(updateCinema != null) {
+            return "redirect:/allFamilyTradition";
+        }
+        return "redirect:/";
+    }
+
+    @PostMapping(value = "/viewpic/{picToken}", produces = {MediaType.IMAGE_JPEG_VALUE, MediaType.IMAGE_PNG_VALUE})
+    public @ResponseBody byte[] viewPic(@PathVariable(name = "picToken") String token) throws IOException {
+        return familyTraditionFileUploadService.getFamilyTraditionsImage(token);
     }
 
 }

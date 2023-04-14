@@ -10,7 +10,6 @@ public interface FamilyTraditionsService {
     List<FamilyTraditions> getFamilyTraditions();
     FamilyTraditions getFamilyTradition(Long id);
     void deleteFamilyTradition(Long id);
-
     FamilyTraditions getCurrentTradition();
 
 }

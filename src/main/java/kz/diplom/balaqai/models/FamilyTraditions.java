@@ -41,4 +41,7 @@ public class FamilyTraditions extends BaseEntity{
     @Column(name = "variantC")
     private String variantC;
 
+    @Column(name = "answer")
+    private String answer;
+
 }

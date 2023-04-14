@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{'/css/bootstrap.css'}">
+    <script type="text/javascript" th:src="@{'/js/bootstrap.bundle.js'}"></script>
+</head>
+<body>
+
+    <div class="container">
+        <div>
+            <a th:href="@{'/allFamilyTradition'}" class="btn-outline-primary">Family Tradition</a>
+        </div>
+        <div>
+            <a th:href="@{''}" class="btn-outline-primary">Islam Tradition</a>
+        </div>
+        <div>
+            <a th:href="@{''}" class="btn-outline-primary">Nauryz Tradition</a>
+        </div>
+        <div>
+            <a th:href="@{''}" class="btn-outline-primary">Traditions And Customers Of Education</a>
+        </div>
+        <div>
+            <a th:href="@{''}" class="btn-outline-primary">Traditions Of Raising A Dowry</a>
+        </div>
+    </div>
+
+</body>
+</html>
