@@ -12,4 +12,6 @@ public interface FamilyTraditionsService {
     void deleteFamilyTradition(Long id);
     FamilyTraditions getCurrentTradition();
 
+//    FamilyTraditions getFamilyTraditionImage(String image);
+
 }

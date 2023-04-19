@@ -52,7 +52,7 @@ public class FamilyTraditionFileUploadServiceImpl implements FamilyTraditionFile
 
     @Override
     public byte[] getFamilyTraditionsImage(String token) throws IOException {
-        String picURL = loadFamilyURL + "image.png";
+        String picURL = loadFamilyURL + "image.jpg";
         if (token != null) {
             if (token.equals(familyTraditionsService.getCurrentTradition().getImage()))
                 picURL = loadFamilyURL + token;
@@ -64,7 +64,7 @@ public class FamilyTraditionFileUploadServiceImpl implements FamilyTraditionFile
             ClassPathResource resource = new ClassPathResource(picURL);
             in = resource.getInputStream();
         } catch (Exception e) {
-            picURL = loadFamilyURL + "image.png";
+            picURL = loadFamilyURL + "image.jpg";
             ClassPathResource resource = new ClassPathResource(picURL);
             in = resource.getInputStream();
         }

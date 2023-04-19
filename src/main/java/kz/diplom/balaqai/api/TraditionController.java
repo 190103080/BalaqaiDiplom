@@ -3,7 +3,9 @@ package kz.diplom.balaqai.api;
 import kz.diplom.balaqai.models.*;
 import kz.diplom.balaqai.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -66,10 +68,15 @@ public class TraditionController {
         return familyTraditionsService.saveFamilyTradition(familyTraditions);
     }
 
-    @DeleteMapping(value = "/deleteFamilyTradition/{id}")
-    public void deleteFamilyTradition(@PathVariable(name = "id") Long id) {
+    @DeleteMapping(value = "/deleteFamilyTradition/{id}", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+    public void deleteFamilyTradition(@PathVariable(name = "id") Long id, @RequestPart("imageFile") MultipartFile[] file) {
         familyTraditionsService.deleteFamilyTradition(id);
     }
+
+//    @GetMapping(value = "/getFamilyTradition/{id}/{image}")
+//    public FamilyTraditions getOneFamilyTraditionImage(@PathVariable(name = "image") String image) {
+//        return familyTraditionsService.getFamilyTraditionImage(image);
+//    }
 
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
