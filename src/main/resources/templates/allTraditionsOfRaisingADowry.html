@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{'/css/bootstrap.css'}">
+    <script type="text/javascript" th:src="@{'/js/bootstrap.bundle.js'}"></script>
+</head>
+<body>
+
+<div class="d-flex flex-column container" style="width: 1000px; height: 580px">
+  <div class="container mt-0 w-100">
+    <div class="row" style="justify-content: space-around">
+      <div class="card" style="width: 13rem;" th:each="torad : ${traditionOfRaisingADowry}">
+        <img th:src="@{'/traditionsOfRaisingImage/' + ${torad.image}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><strong th:text="${torad.name}"></strong></h5>
+          <p class="card-text" th:text="${torad.description}"></p>
+          <a th:href="@{'/detailsTraditionsOfRaisingADowry/' + ${torad.id}}" class="btn btn-primary">Check</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

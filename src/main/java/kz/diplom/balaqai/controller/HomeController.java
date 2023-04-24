@@ -1,10 +1,8 @@
 package kz.diplom.balaqai.controller;
 
 import kz.diplom.balaqai.dto.UserDto;
-import kz.diplom.balaqai.models.FamilyTraditions;
-import kz.diplom.balaqai.services.FamilyTraditionFileUploadService;
-import kz.diplom.balaqai.services.FamilyTraditionsService;
-import kz.diplom.balaqai.services.UserService;
+import kz.diplom.balaqai.models.*;
+import kz.diplom.balaqai.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -26,6 +24,30 @@ public class HomeController {
 
     @Autowired
     private FamilyTraditionFileUploadService familyTraditionFileUploadService;
+
+    @Autowired
+    private IslamTraditionsService islamTraditionsService;
+
+    @Autowired
+    private IslamTraditionFileUploadService islamTraditionFileUploadService;
+
+    @Autowired
+    private NauryzTraditionsService nauryzTraditionsService;
+
+    @Autowired
+    private NauryzTraditionFileUploadService nauryzTraditionFileUploadService;
+
+    @Autowired
+    private TraditionsOfRaisingADowryService traditionsOfRaisingADowryService;
+
+    @Autowired
+    private TraditionsOfRaisingADowryFileUploadService traditionsOfRaisingADowryFileUploadService;
+
+    @Autowired
+    private TraditionsAndCustomersOfEducationService traditionsAndCustomersOfEducationService;
+
+    @Autowired
+    private TraditionsAndCustomersFileUploadService traditionsAndCustomersFileUploadService;
 
     @GetMapping(value = "/")
     public String homePage() {
@@ -78,10 +100,10 @@ public class HomeController {
     }
 
     @PostMapping(value = "/saveTradition")
-    public String saveeCinema(@RequestParam(name = "image_pic") MultipartFile multipartFile, FamilyTraditions familyTraditions) {
-        FamilyTraditions updateCinema = familyTraditionsService.saveFamilyTradition(familyTraditions);
-        familyTraditionFileUploadService.uploadFamilyTraditionsImage(multipartFile, updateCinema);
-        if(updateCinema != null) {
+    public String saveFamilyTradition(@RequestParam(name = "image_pic") MultipartFile multipartFile, FamilyTraditions familyTraditions) {
+        FamilyTraditions updateFamilyTradition = familyTraditionsService.saveFamilyTradition(familyTraditions);
+        familyTraditionFileUploadService.uploadFamilyTraditionsImage(multipartFile, updateFamilyTradition);
+        if(updateFamilyTradition != null) {
             return "redirect:/allFamilyTradition";
         }
         return "redirect:/";
@@ -91,5 +113,122 @@ public class HomeController {
     public @ResponseBody byte[] viewPic(@PathVariable(name = "picToken") String token) throws IOException {
         return familyTraditionFileUploadService.getFamilyTraditionsImage(token);
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @GetMapping(value = "/allIslamTradition")
+    public String allIslamTraition(Model model) {
+        model.addAttribute("islamTradition", islamTraditionsService.getAllIslamTraditions());
+        return "allIslamTradition";
+    }
+
+    @GetMapping(value = "/detailsIslamTradition/{id}")
+    public String detailsIslamTradition(Model model, @PathVariable(name = "id") Long id) {
+        model.addAttribute("islamTradition", islamTraditionsService.getOneIslamTraditions(id));
+        return "detailsIslamTradition";
+    }
+
+    @PostMapping(value = "/saveIslamTradition")
+        public String saveIslamTradition(@RequestParam(name = "image_pic") MultipartFile multipartFile, IslamTraditions islamTraditions) {
+        IslamTraditions updateIslamTradition = islamTraditionsService.saveIslamTradition(islamTraditions);
+        islamTraditionFileUploadService.uploadIslamTraditionsImage(multipartFile, updateIslamTradition);
+        if (updateIslamTradition != null) {
+            return "redirect:/allIslamTradition";
+        }
+        return "redirect:/";
+    }
+
+    @PostMapping(value = "/viewpic/{picIslamToken}", produces = {MediaType.IMAGE_JPEG_VALUE, MediaType.IMAGE_PNG_VALUE})
+    public @ResponseBody byte[] viewIslamTraditionPic(@PathVariable(name = "picIslamToken") String token) throws IOException {
+        return islamTraditionFileUploadService.getIslamTraditionsImage(token);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @GetMapping(value = "/allNauryzTradition")
+    public String allNauryzTradition(Model model) {
+        model.addAttribute("nauryzTradition", nauryzTraditionsService.getAllNauryzTraditions());
+        return "allnauryzTradition";
+    }
+
+    @GetMapping(value = "/detailsNauryzTradition/{id}")
+    public String detailsNauryzTradition(Model model, @PathVariable(name = "id") Long id) {
+        model.addAttribute("nauryzTradition", nauryzTraditionsService.getOneNauryzTradition(id));
+        return "detailsNauryzTradition";
+    }
+
+    @PostMapping(value = "/saveNauryzTradition")
+    public String saveNauryzTradition(@RequestParam(name = "image_pic") MultipartFile multipartFile, NauryzTraditions nauryzTraditions) {
+        NauryzTraditions updateNauryzTradition = nauryzTraditionsService.saveNauryzTradition(nauryzTraditions);
+        nauryzTraditionFileUploadService.uploadNauryzTraditionImage(multipartFile, updateNauryzTradition);
+        if (updateNauryzTradition != null) {
+            return "redirect:/allNauryzTradition";
+        }
+        return "redirect:/";
+    }
+
+    @PostMapping(value = "/viewpic/{picNauryzToken}", produces = {MediaType.IMAGE_JPEG_VALUE, MediaType.IMAGE_PNG_VALUE})
+    public @ResponseBody byte[] viewNauryzTraditionPic(@PathVariable(name = "picNauryzToken") String token) throws IOException {
+        return islamTraditionFileUploadService.getIslamTraditionsImage(token);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @GetMapping(value = "/allTraditionAndCustomersOfEducation")
+    public String allTraditionAndCustomersOfEducation(Model model) {
+        model.addAttribute("traditionAndCustomersOfEducation", traditionsAndCustomersOfEducationService.getAllTraditionAndCustomersOfEducation());
+        return "allTraditionAndCustomersOfEducation";
+    }
+
+    @GetMapping(value = "/detailsTraditionAndCustomersOfEducation/{id}")
+    public String detailsTraditionAndCustomersOfEducation(Model model, @PathVariable(name = "id") Long id) {
+        model.addAttribute("traditionAndCustomersOfEducation", traditionsAndCustomersOfEducationService.getOneTraditionAndCustomersOfEducation(id));
+        return "detailsTraditionAndCustomersOfEducation";
+    }
+
+    @PostMapping(value = "/saveTraditionAndCustomersOfEducation")
+    public String saveTraditionAndCustomersOfEducation(@RequestParam(name = "image_pic") MultipartFile multipartFile, TraditionsAndCustomsOfEducation traditionsAndCustomsOfEducation) {
+        TraditionsAndCustomsOfEducation updateTraditionAndCustomersOfEducation = traditionsAndCustomersOfEducationService.saveTraditionAndCustomersOfEducation(traditionsAndCustomsOfEducation);
+        traditionsAndCustomersFileUploadService.uploadTraditionsAndCustomersImage(multipartFile, updateTraditionAndCustomersOfEducation);
+        if (updateTraditionAndCustomersOfEducation != null) {
+            return "redirect:/allTraditionAndCustomersOfEducation";
+        }
+        return "redirect:/";
+    }
+
+    @PostMapping(value = "/viewpic/{picTraditionAndCustomersOfEducationToken}", produces = {MediaType.IMAGE_JPEG_VALUE, MediaType.IMAGE_PNG_VALUE})
+    public @ResponseBody byte[] viewTraditionAndCustomersOfEducationPic(@PathVariable(name = "picTraditionAndCustomersOfEducationToken") String token) throws IOException {
+        return traditionsAndCustomersFileUploadService.getTraditionsAndCustomerImage(token);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @GetMapping(value = "/allTraditionsOfRaisingADowry")
+    public String allTraditionsOfRaisingADowry(Model model) {
+        model.addAttribute("traditionOfRaisingADowry", traditionsOfRaisingADowryService.getAllTraditionsOfRaisingADowry());
+        return "allTraditionsOfRaisingADowry";
+    }
+
+    @GetMapping(value = "/detailsTraditionsOfRaisingADowry/{id}")
+    public String detailsTraditionsOfRaisingADowry(Model model, @PathVariable(name = "id") Long id) {
+        model.addAttribute("traditionOfRaisingADowry", traditionsOfRaisingADowryService.getOneTraditionOfRaisingADowry(id));
+        return "detailsTraditionsOfRaisingADowry";
+    }
+
+    @PostMapping(value = "/saveTraditionsOfRaisingADowry")
+    public String saveTraditionsOfRaisingADowry(@RequestParam(name = "image_pic") MultipartFile multipartFile, TraditionsOfRaisingADowry traditionsOfRaisingADowry) {
+        TraditionsOfRaisingADowry updateTraditionsOfRaisingADowry = traditionsOfRaisingADowryService.saveTraditionOfRaisingADowry(traditionsOfRaisingADowry);
+        traditionsOfRaisingADowryFileUploadService.uploadTraditionsOfRaisingImage(multipartFile, updateTraditionsOfRaisingADowry);
+        if (updateTraditionsOfRaisingADowry != null) {
+            return "redirect:/allTraditionsOfRaisingADowry";
+        }
+        return "redirect:/";
+    }
+
+    @PostMapping(value = "/viewpic/{picTraditionsOfRaisingADowryToken}", produces = {MediaType.IMAGE_JPEG_VALUE, MediaType.IMAGE_PNG_VALUE})
+    public @ResponseBody byte[] viewTraditionsOfRaisingADowryPic(@PathVariable(name = "picTraditionsOfRaisingADowryToken") String token) throws IOException {
+        return traditionsOfRaisingADowryFileUploadService.getTraditionsOfRaisingImage(token);
+    }
+
 
 }

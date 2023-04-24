@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <form th:action="@{'/saveTraditionAndCustomersOfEducation'}" method="post" enctype="multipart/form-data" th:if="${traditionAndCustomersOfEducation != null}">
+        <input type="hidden" name="id" th:value="${traditionAndCustomersOfEducation.id}">
+        <label>Name:</label><br>
+        <input type="text" size="80" name="name" th:value="${traditionAndCustomersOfEducation.name}"><br>
+        <label>Description:</label><br>
+        <input type="text" size="80" name="description" th:value="${traditionAndCustomersOfEducation.description}"><br>
+        <label>Description1:</label><br>
+        <input type="text" size="80" name="description1" th:value="${traditionAndCustomersOfEducation.description1}"><br>
+        <label>Description2:</label><br>
+        <input type="text" size="80" name="description2" th:value="${traditionAndCustomersOfEducation.description2}"><br>
+        <label>Description2:</label><br>
+        <input type="text" size="80" name="description2" th:value="${traditionAndCustomersOfEducation.variantA}"><br>
+        <label>Description2:</label><br>
+        <input type="text" size="80" name="description2" th:value="${traditionAndCustomersOfEducation.variantB}"><br>
+        <label>Description2:</label><br>
+        <input type="text" size="80" name="description2" th:value="${traditionAndCustomersOfEducation.variantC}"><br>
+        <label>Description2:</label><br>
+        <input type="text" size="80" name="description2" th:value="${traditionAndCustomersOfEducation.answer}"><br>
+        <label>Image:</label><br>
+        <!--          <img th:src="@{ '/viewpic/' + ${#authentication.getPrincipal().avatar}}" width="300px">-->
+        <input type="file" name="image_pic">
+        <br><br>
+
+        <button class="btn btn-success" style="display: flex">Change</button>
+
+        <!--        <form th:action="@{'/deletecinema'}" method="post" th:if="${cinemas != null}">-->
+        <!--          <input type="hidden" name="id" th:value="${cinemas.id}">-->
+        <!--          <button class="btn btn-danger" size="50">Delete</button>-->
+        <!--        </form>-->
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

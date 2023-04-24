@@ -14,7 +14,7 @@
   <div class="row">
     <div class="col-3"></div>
     <div class="col-6">
-      <form th:action="@{'/saveIslamTradition'}" method="post" enctype="multipart/form-data" th:if="${islamTradition != null}">
+      <form th:action="@{'/saveTradition'}" method="post" enctype="multipart/form-data" th:if="${islamTradition != null}">
         <input type="hidden" name="id" th:value="${islamTradition.id}">
         <label>Name:</label><br>
         <input type="text" size="80" name="name" th:value="${islamTradition.name}"><br>

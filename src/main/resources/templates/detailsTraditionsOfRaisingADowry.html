@@ -10,24 +10,24 @@
   <div class="row">
     <div class="col-3"></div>
     <div class="col-6">
-      <form th:action="@{'/saveIslamTradition'}" method="post" enctype="multipart/form-data" th:if="${islamTradition != null}">
-        <input type="hidden" name="id" th:value="${islamTradition.id}">
+      <form th:action="@{'/saveTraditionsOfRaisingADowry'}" method="post" enctype="multipart/form-data" th:if="${traditionOfRaisingADowry != null}">
+        <input type="hidden" name="id" th:value="${traditionOfRaisingADowry.id}">
         <label>Name:</label><br>
-        <input type="text" size="80" name="name" th:value="${islamTradition.name}"><br>
+        <input type="text" size="80" name="name" th:value="${traditionOfRaisingADowry.name}"><br>
         <label>Description:</label><br>
-        <input type="text" size="80" name="description" th:value="${islamTradition.description}"><br>
+        <input type="text" size="80" name="description" th:value="${traditionOfRaisingADowry.description}"><br>
         <label>Description1:</label><br>
-        <input type="text" size="80" name="description1" th:value="${islamTradition.description1}"><br>
+        <input type="text" size="80" name="description1" th:value="${traditionOfRaisingADowry.description1}"><br>
         <label>Description2:</label><br>
-        <input type="text" size="80" name="description2" th:value="${islamTradition.description2}"><br>
+        <input type="text" size="80" name="description2" th:value="${traditionOfRaisingADowry.description2}"><br>
         <label>Description2:</label><br>
-        <input type="text" size="80" name="description2" th:value="${islamTradition.variantA}"><br>
+        <input type="text" size="80" name="description2" th:value="${traditionOfRaisingADowry.variantA}"><br>
         <label>Description2:</label><br>
-        <input type="text" size="80" name="description2" th:value="${islamTradition.variantB}"><br>
+        <input type="text" size="80" name="description2" th:value="${traditionOfRaisingADowry.variantB}"><br>
         <label>Description2:</label><br>
-        <input type="text" size="80" name="description2" th:value="${islamTradition.variantC}"><br>
+        <input type="text" size="80" name="description2" th:value="${traditionOfRaisingADowry.variantC}"><br>
         <label>Description2:</label><br>
-        <input type="text" size="80" name="description2" th:value="${islamTradition.answer}"><br>
+        <input type="text" size="80" name="description2" th:value="${traditionOfRaisingADowry.answer}"><br>
         <label>Image:</label><br>
         <!--          <img th:src="@{ '/viewpic/' + ${#authentication.getPrincipal().avatar}}" width="300px">-->
         <input type="file" name="image_pic">
