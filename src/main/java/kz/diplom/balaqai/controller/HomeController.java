@@ -49,6 +49,12 @@ public class HomeController {
     @Autowired
     private TraditionsAndCustomersFileUploadService traditionsAndCustomersFileUploadService;
 
+    @Autowired
+    private SuretteNeKorsetilgenService suretteNeKorsetilgenService;
+
+    @Autowired
+    private SuretteNeKorsetilgenFileUploadService suretteNeKorsetilgenFileUploadService;
+
     @GetMapping(value = "/")
     public String homePage() {
         return "home";
@@ -228,6 +234,35 @@ public class HomeController {
     @PostMapping(value = "/viewpic/{picTraditionsOfRaisingADowryToken}", produces = {MediaType.IMAGE_JPEG_VALUE, MediaType.IMAGE_PNG_VALUE})
     public @ResponseBody byte[] viewTraditionsOfRaisingADowryPic(@PathVariable(name = "picTraditionsOfRaisingADowryToken") String token) throws IOException {
         return traditionsOfRaisingADowryFileUploadService.getTraditionsOfRaisingImage(token);
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @GetMapping(value = "/getAllSuretteNeKorsetilgen")
+    public String allSuretteNeKorsetilgen(Model model) {
+        model.addAttribute("suretteNeKorsetilgen", suretteNeKorsetilgenService.getAllData());
+        return "getAllSuretteNeKorsetilgen";
+    }
+
+    @GetMapping(value = "/detailsSuretteNeKorsetilgen/{id}")
+    public String detailsSuretteNeKorsetilgen(Model model, @PathVariable(name = "id") Long id) {
+        model.addAttribute("suretteNeKorsetilgen", suretteNeKorsetilgenService.getOneData(id));
+        return "detailsSuretteNeKorsetilgen";
+    }
+
+    @PostMapping(value = "/saveSuretteNeKorsetilgen")
+    public String saveSuretteNeKorsetilgen(@RequestParam(name = "image_pic") MultipartFile multipartFile, SuretteNeKorsetilgen suretteNeKorsetilgen) {
+        SuretteNeKorsetilgen updateSuretteNeKorsetilgen = suretteNeKorsetilgenService.saveSuretteNeKorsetilgen(suretteNeKorsetilgen);
+        suretteNeKorsetilgenFileUploadService.uploadSuretteNeKorsetilgenImage(multipartFile, updateSuretteNeKorsetilgen);
+        if (updateSuretteNeKorsetilgen != null) {
+            return "redirect:/getAllSuretteNeKorsetilgen";
+        }
+        return "redirect:/";
+    }
+
+    @PostMapping(value = "/viewpic/{picSuretteNeKorsetilgenToken}", produces = {MediaType.IMAGE_JPEG_VALUE, MediaType.IMAGE_PNG_VALUE})
+    public @ResponseBody byte[] viewSuretteNeKorsetilgenPic(@PathVariable(name = "picSuretteNeKorsetilgenToken") String token) throws IOException {
+        return suretteNeKorsetilgenFileUploadService.getSuretteNeKorsetilgenImage(token);
     }
 
 
