@@ -68,7 +68,7 @@ interface BalaqaiApi {
 
     companion object {
 
-        const val BASE_URL = "http://192.168.0.18:8000"
+        const val BASE_URL = "http://192.168.0.11:8000"
         const val BASE_familyImage_URL = "$BASE_URL/familyImage/"
         const val BASE_islamImage_URL = "$BASE_URL/islamImage/"
         const val BASE_nauryzImage_URL = "$BASE_URL/nauryzImage/"

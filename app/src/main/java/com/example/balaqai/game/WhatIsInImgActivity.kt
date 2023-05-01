@@ -103,11 +103,30 @@ class WhatIsInImgActivity : AppCompatActivity() {
         } else {
             //Random logo
 
-            Glide
-                .with(this)
-                .load(Uri.parse("${BalaqaiApi.BASE_URL}/game/suretteNeKorsetilgenImage/${GameData.gameSuretteNeKorsetilgen[image_count].image}"))
-                .fitCenter()
-                .into(binding.imLogo)
+            when (GameData.gameSuretteNeKorsetilgen[image_count].name) {
+                "Құрақ" -> {
+                    binding.imLogo.setImageResource(R.drawable.kurak)
+                }
+                "Ою-өрнек" -> {
+                    binding.imLogo.setImageResource(R.drawable.oiy_ornek)
+                }
+                "Домбыра" -> {
+                    binding.imLogo.setImageResource(R.drawable.dombira)
+                }
+                "Киіз үй" -> {
+                    binding.imLogo.setImageResource(R.drawable.kiiz_yi)
+                }
+                "Теңге" -> {
+                    binding.imLogo.setImageResource(R.drawable.tenge)
+                }
+                else -> {
+                    Glide
+                        .with(this)
+                        .load(Uri.parse("${BalaqaiApi.BASE_URL}/game/suretteNeKorsetilgenImage/${GameData.gameSuretteNeKorsetilgen[image_count].image}"))
+                        .fitCenter()
+                        .into(binding.imLogo)
+                }
+            }
 
             correct_answer = GameData.gameSuretteNeKorsetilgen[image_count].name
             answer = correct_answer.toCharArray()

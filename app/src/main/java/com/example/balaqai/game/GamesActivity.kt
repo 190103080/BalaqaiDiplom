@@ -121,6 +121,7 @@ class GamesActivity : AppCompatActivity() {
         binding.btnTraditions.setOnClickListener {
                 val intent = Intent(this, TraditionsActivity::class.java)
                 startActivity(intent)
+                finish()
         }
 
 
@@ -197,4 +198,8 @@ class GamesActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
+    }
 }
