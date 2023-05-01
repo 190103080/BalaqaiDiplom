@@ -38,9 +38,4 @@ public class FamilyTraditionsServiceImpl implements FamilyTraditionsService {
     public FamilyTraditions getCurrentTradition() {
         return null;
     }
-
-//    @Override
-//    public FamilyTraditions getFamilyTraditionImage(String image) {
-//        return familyTraditionsRepository.;
-//    }
 }

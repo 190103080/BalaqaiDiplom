@@ -34,12 +34,4 @@ public class UserController {
         userService.deleteUser(id);
     }
 
-    /*@PostMapping(value = "/updatePassword/{id}")
-    public void updatePassword(@RequestParam(name = "old_password") String oldPassword,
-                               @RequestParam(name = "new_password") String newPassword,
-                               @RequestParam(name = "re_new_password") String reNewPassword,
-                               @PathVariable(name = "id") Long id) {
-        userService.updatePassword(oldPassword, newPassword, reNewPassword);
-    }*/
-
 }
