@@ -1,14 +1,14 @@
 # BalaqaiDiplom
 
 # Team Members
-* **Sabina Shaganova** -
-* **Laura** -
-* **Meruert** -
-* **Magzhan** -
-* **Batyrkhan Kenzhaliyev** -
+* **Sabina Shaganova** - Project Manger, UI/UX Designer (GitHub account: )
+* **Laura Tileubek** - UI/UX Designer (GitHub account: )
+* **Meruert Khuankyzy** - Buisness analyst (GitHub account: )
+* **Magzhan Nurbapa** - Frontend Developer (GitHub account: )
+* **Batyrkhan Kenzhaliyev** - Backend Developer (GitHub account: 190103080)
 
 # Project
-* smth
+* A plan is necessary for effective and complete completion of the work.Therefore, we used the online project management system Trello to plan the tasks of this project.
 
 # Technologies
 * smth
