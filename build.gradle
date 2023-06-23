@@ -35,6 +35,11 @@ dependencies {
 	implementation group: 'commons-codec', name: 'commons-codec', version: '1.15'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
+	//jwt
+	implementation 'io.jsonwebtoken:jjwt:0.9.1'
+	// mailer
+	implementation 'org.springframework:spring-context-support:5.3.9'
+	implementation 'com.sun.mail:javax.mail:1.6.2'
 }
 
 tasks.named('test') {

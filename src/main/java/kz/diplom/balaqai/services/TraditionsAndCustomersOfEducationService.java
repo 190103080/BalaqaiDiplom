@@ -10,7 +10,6 @@ public interface TraditionsAndCustomersOfEducationService {
     List<TraditionsAndCustomsOfEducation> getAllTraditionAndCustomersOfEducation();
     TraditionsAndCustomsOfEducation getOneTraditionAndCustomersOfEducation(Long id);
     TraditionsAndCustomsOfEducation saveTraditionAndCustomersOfEducation(TraditionsAndCustomsOfEducation traditionsAndCustomsOfEducation);
-
     TraditionsAndCustomsOfEducation getCurrentTraditionsAndCustomers();
 
 }

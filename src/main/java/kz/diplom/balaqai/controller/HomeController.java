@@ -78,13 +78,13 @@ public class HomeController {
             return "redirect:/signup?error";
     }
 
-    @PostMapping(value = "/updatepassword")
+    /*@PostMapping(value = "/updatepassword")
     public String updatePassword(@RequestParam(name = "old_password") String oldPassword,
                                  @RequestParam(name = "new_password") String newPassword,
                                  @RequestParam(name = "re_new_password") String reNewPassword) {
         userService.updatePassword(oldPassword, newPassword, reNewPassword);
         return "redirect:/profile";
-    }
+    }*/
 
     @GetMapping(value = "/profile")
     @PreAuthorize("isAuthenticated()")
