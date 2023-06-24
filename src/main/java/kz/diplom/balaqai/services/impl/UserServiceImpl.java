@@ -1,6 +1,6 @@
 package kz.diplom.balaqai.services.impl;
 
-import kz.diplom.balaqai.component.PasswordResetLinkGenerator;
+import kz.diplom.balaqai.config.PasswordResetLinkGenerator;
 import kz.diplom.balaqai.config.JwtUtils;
 import kz.diplom.balaqai.dto.UserDto;
 import kz.diplom.balaqai.models.PasswordResetRequest;
@@ -10,7 +10,6 @@ import kz.diplom.balaqai.repository.PasswordResetRequestRepository;
 import kz.diplom.balaqai.repository.PermissionRepository;
 import kz.diplom.balaqai.repository.UserRepository;
 import kz.diplom.balaqai.services.UserService;
-import org.hibernate.transform.PassThroughResultTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
@@ -144,13 +143,13 @@ public class UserServiceImpl implements UserService {
             message.setTo(user.getEmail());
             message.setSubject("Password Reset Request");
             message.setText("Dear " + user.getUsername() + ",\n\n" +
-                    "You recently requested a password reset for your account on Sura.kz. " +
+                    "You recently requested a password reset for your account on BALAQAI. " +
                     "If you did not make this request, please ignore this message. " +
                     "Otherwise, click the following link to reset your password:\n\n" +
                     resetLink + "\n\n" +
                     "This link will expire in 24 hours.\n\n" +
                     "Sincerely,\n" +
-                    "Sura.kz Support Team");
+                    "BALAQAI Support Team");
 
             mailSender.send(message);
 

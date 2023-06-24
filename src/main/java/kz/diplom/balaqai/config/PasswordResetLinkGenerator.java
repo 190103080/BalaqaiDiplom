@@ -1,4 +1,4 @@
-package kz.diplom.balaqai.component;
+package kz.diplom.balaqai.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

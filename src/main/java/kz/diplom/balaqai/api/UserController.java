@@ -50,7 +50,7 @@ public class UserController {
         }
     }
 
-    @PostMapping(value = "/reset-pass")
+    @PostMapping(value = "/reset_pass")
     public ResponseEntity<Object> resetPassByLink(@RequestBody UserDto userDto,
                                                   @RequestParam(required = true) String email,
                                                   @RequestParam(required = true) String token,
@@ -67,7 +67,7 @@ public class UserController {
         }
     }
 
-    @PostMapping(value = "update-password")
+    @PostMapping(value = "/update_password")
     public ResponseEntity<Object> updatePassword(@RequestBody UserDto userDto, HttpServletRequest request) {
         try {
             User user = userService.updatePassword(userDto.getOldPassword(), userDto.getNewPassword(), request);
