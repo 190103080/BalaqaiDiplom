@@ -121,8 +121,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResponseEntity<String> reset(UserDto userDto) {
-        User user = userRepository.findByEmail(userDto.getEmail());
+    public ResponseEntity<String> reset(String email) {
+        User user = userRepository.findByEmail(email);
         if(user != null){
             String resetLink = passwordResetLinkGenerator.generatePasswordResetLink(user.getEmail());
 

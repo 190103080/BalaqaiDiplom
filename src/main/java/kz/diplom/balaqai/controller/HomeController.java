@@ -265,5 +265,8 @@ public class HomeController {
         return suretteNeKorsetilgenFileUploadService.getSuretteNeKorsetilgenImage(token);
     }
 
-
+    @GetMapping(value = "/reset_page")
+    public String resetPage(Model model) {
+        return "reset";
+    }
 }

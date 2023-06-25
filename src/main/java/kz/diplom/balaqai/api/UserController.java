@@ -7,6 +7,7 @@ import kz.diplom.balaqai.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -41,9 +42,9 @@ public class UserController {
     }
 
     @PostMapping(value = "/reset")
-    public ResponseEntity<String> resetUser(@RequestBody UserDto userDto) {
+    public ResponseEntity<String> resetUser(@RequestBody String email) {
         try {
-            return userService.reset(userDto);
+            return userService.reset(email);
             //return new ResponseEntity<Object> (user, HttpStatus.OK);
         } catch (Exception e){
             return ResponseEntity.badRequest().build();

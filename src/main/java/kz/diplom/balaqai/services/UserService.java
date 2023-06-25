@@ -19,7 +19,10 @@ public interface UserService extends UserDetailsService {
     User getUser(String email);
     List<Permission> getRoles();
     User saveRole(User user);
-    ResponseEntity<String> reset(UserDto userDto);
+//    ResponseEntity<String> reset(UserDto userDto);
+
+    ResponseEntity<String> reset(String email);
+
     User resetPass(UserDto userDto, String email, String token, String expires);
     User updateUser(UserDto userDto, HttpServletRequest request);
     void deleteUser(Long id);
