@@ -12,16 +12,16 @@ import java.util.List;
 public interface UserService extends UserDetailsService {
 
     boolean registerUser(UserDto userDto);
-    User updatePassword(String oldPassword, String newPassword, HttpServletRequest request);
+    User updatePassword(UserDto userDto, String newPassword, String reNewPassword);
     User getCurrentUser();
     User saveUserData(User user);
     List<User> getUsers();
     User getUser(String email);
     List<Permission> getRoles();
     User saveRole(User user);
-//    ResponseEntity<String> reset(UserDto userDto);
+    ResponseEntity<String> reset(UserDto userDto);
 
-    ResponseEntity<String> reset(String email);
+//    ResponseEntity<String> reset(String email);
 
     User resetPass(UserDto userDto, String email, String token, String expires);
     User updateUser(UserDto userDto, HttpServletRequest request);

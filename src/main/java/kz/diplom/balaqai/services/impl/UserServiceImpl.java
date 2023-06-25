@@ -63,14 +63,26 @@ public class UserServiceImpl implements UserService {
         return false;
     }
 
+//    @Override
+//    public User updatePassword(String oldPassword, String newPassword, HttpServletRequest request) {
+//        String token = jwtUtils.getTokenFromRequest(request);
+//        String username = jwtUtils.getUsernameFromToken(token);
+//        User user = userRepository.findByEmail(username);
+//        if (passwordEncoder.matches(oldPassword, user.getPassword())) {
+//            user.setPassword(passwordEncoder.encode(newPassword));
+//            return userRepository.save(user);
+//        }
+//        return null;
+//    }
+
     @Override
-    public User updatePassword(String oldPassword, String newPassword, HttpServletRequest request) {
-        String token = jwtUtils.getTokenFromRequest(request);
-        String username = jwtUtils.getUsernameFromToken(token);
-        User user = userRepository.findByEmail(username);
-        if (passwordEncoder.matches(oldPassword, user.getPassword())) {
-            user.setPassword(passwordEncoder.encode(newPassword));
-            return userRepository.save(user);
+    public User updatePassword(UserDto userDto, String newPassword, String retypePassword) {
+        if (newPassword.equals(retypePassword)) {
+            User user = getCurrentUser();
+            if (passwordEncoder.matches(newPassword, user.getPassword())) {
+                user.setPassword(passwordEncoder.encode(newPassword));
+                userRepository.save(user);
+            }
         }
         return null;
     }
@@ -121,8 +133,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResponseEntity<String> reset(String email) {
-        User user = userRepository.findByEmail(email);
+    public ResponseEntity<String> reset(UserDto userDto) {
+        User user = userRepository.findByEmail(userDto.getEmail());
         if(user != null){
             String resetLink = passwordResetLinkGenerator.generatePasswordResetLink(user.getEmail());
 

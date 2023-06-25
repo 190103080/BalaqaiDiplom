@@ -42,9 +42,9 @@ public class UserController {
     }
 
     @PostMapping(value = "/reset")
-    public ResponseEntity<String> resetUser(@RequestBody String email) {
+    public ResponseEntity<String> resetUser(@RequestBody UserDto userDto) {
         try {
-            return userService.reset(email);
+            return userService.reset(userDto);
             //return new ResponseEntity<Object> (user, HttpStatus.OK);
         } catch (Exception e){
             return ResponseEntity.badRequest().build();
@@ -68,7 +68,7 @@ public class UserController {
         }
     }
 
-    @PostMapping(value = "/update_password")
+   /* @PostMapping(value = "/update_password")
     public ResponseEntity<Object> updatePassword(@RequestBody UserDto userDto, HttpServletRequest request) {
         try {
             User user = userService.updatePassword(userDto.getOldPassword(), userDto.getNewPassword(), request);
@@ -80,6 +80,6 @@ public class UserController {
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
-    }
+    }*/
 
 }

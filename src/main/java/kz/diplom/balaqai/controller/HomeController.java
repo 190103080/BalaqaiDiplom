@@ -269,4 +269,13 @@ public class HomeController {
     public String resetPage(Model model) {
         return "reset";
     }
+
+    @PostMapping(value = "/updatepassword")
+    public String updatePassword(@RequestBody UserDto userDto,
+                                 @RequestParam(required = true) String email,
+                                 @RequestParam(required = true) String token,
+                                 @RequestParam(required = true) String expires) {
+        userService.resetPass(userDto, email, token, expires);
+        return "redirect:/profile";
+    }
 }
